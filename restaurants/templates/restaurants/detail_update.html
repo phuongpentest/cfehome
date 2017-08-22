@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block head_title %} {{ title }} | {{ block.super }}{% endblock %}
+{% block content %}
+<h1>Detail {{ title }}</h1>
+<h2>Name: {{ form.instance.name }}</h2>  
+<p>Location: {{ form.instance.location }}</p>
+<p>Category: {{form.instance.category}}</p>
+<i><small>Created by <strong>{{ form.instance.owner }}</strong> on {{ form.instance.timestamp}} updated {{form.instance.updated|timesince}} ago</small></i>
+
+<hr/>
+<h3>Make Changes</h3>
+
+{% include 'snippets/form_snippet.html' with form=form %}
+
+<hr/>
+{% if menu_items %}
+{% for item in menu_items %}
+	<ul>
+		<li>item</li>
+	</ul>
+{% endfor %}
+{% endif %}
+{% endblock %}
